@@ -8,34 +8,37 @@
 </ul>
 
 <button (click)="onClick()">Click Me</button>
+<button (click)="toggleEdit()">Edit User</button>
 
-<h1>Edit User</h1>
-<form>
-  <div>
-    <label for="name">Name: </label><br>
-    <input type="text" name="name" id="name" [(ngModel)]="name">
-  </div><br>
-  <div>
-    <label for="age">Age: </label><br>
-    <input type="number" name="age" id="age" [(ngModel)]="age">
-  </div><br>
-  <div>
-    <label for="email">Email: </label><br>
-    <input type="email" name="email" id="email" [(ngModel)]="email">
-  </div><br>
-  <div>
-    <label for="street">Street: </label><br>
-    <input type="text" name="street" id="street" [(ngModel)]="address.street">
-  </div><br>
-  <div>
-    <label for="city">City: </label><br>
-    <input type="text" name="city" id="city" [(ngModel)]="address.city">
-  </div><br>
-  <div>
-    <label for="state">State: </label><br>
-    <input type="text" name="state" id="state" [(ngModel)]="address.state">
-  </div><br>
-</form>
+<div *ngIf=isEdit>
+  <h1>Edit User</h1>
+  <form>
+    <div>
+      <label for="name">Name: </label><br>
+      <input type="text" name="name" id="name" [(ngModel)]="name">
+    </div><br>
+    <div>
+      <label for="age">Age: </label><br>
+      <input type="number" name="age" id="age" [(ngModel)]="age">
+    </div><br>
+    <div>
+      <label for="email">Email: </label><br>
+      <input type="email" name="email" id="email" [(ngModel)]="email">
+    </div><br>
+    <div>
+      <label for="street">Street: </label><br>
+      <input type="text" name="street" id="street" [(ngModel)]="address.street">
+    </div><br>
+    <div>
+      <label for="city">City: </label><br>
+      <input type="text" name="city" id="city" [(ngModel)]="address.city">
+    </div><br>
+    <div>
+      <label for="state">State: </label><br>
+      <input type="text" name="state" id="state" [(ngModel)]="address.state">
+    </div><br>
+  </form>
+</div>
 
 <h1>Hobbies</h1>
 <form (submit)="addHobby(hobby.value)">
@@ -49,3 +52,10 @@
     {{ i+1 }}: {{ hobby }} <button (click)="deleteHobby(hobby)">x</button>
   </li>
 </ul>
+
+<h1>Posts</h1>
+<div *ngFor="let post of posts">
+  <h2>{{ post.title }}</h2>
+  <p>{{ post.body }}</p>
+  <br>
+</div>
